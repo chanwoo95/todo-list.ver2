@@ -4,33 +4,53 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>장바구니</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="main.js" defer></script>
+        <script
+            src="https://kit.fontawesome.com/dfd0b6e02f.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
-        <header class="header__bar">
-            <div class="header__time"></div>
-            <div class="header__icon">
-                <img src="img/ip_bar.png" alt="bar" />
-                <img src="img/ip_wifi.png" alt="wifi" />
-                <img src="img/ip_battery.png" alt="battery" />
-            </div>
-        </header>
-        <section class="title">
-            <div class="title__name">
-                <img src="img/ip_basket.png" alt="basket" />
-                <span>나의 장바구니</span>
-            </div>
-            <div class="title__img"></div>
-        </section>
-        <div class="count"></div>
-        <section class="container">
-            <div class="item">
-                <div class="item__name"></div>
-                <button class="item__button"></button>
-            </div>
-        </section>
-        <footer class="">
-            <input type="text" class="footer__input" />
-            <button class="footer__button"></button>
-        </footer>
+        <div class="wrap">
+            <header class="header__bar">
+                <div class="header__time">9:32</div>
+                <div class="header__icon">
+                    <img src="img/ip_bar.png" alt="bar" />
+                    <img src="img/ip_wifi.png" alt="wifi" />
+                    <img src="img/ip_battery.png" alt="battery" />
+                </div>
+            </header>
+            <section class="title">
+                <div class="title__name">
+                    <img src="img/ip_basket.png" alt="basket" />
+                    <span>나의 장바구니</span>
+                </div>
+                <div class="title__img">
+                    <img src="img/avatar.jpeg" alt="avatar" />
+                </div>
+            </section>
+            <div class="count">총 4개</div>
+            <section class="item__container">
+                <div class="item">
+                    <div class="item__name">바나나</div>
+                    <button class="item__button">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="item">
+                    <div class="item__name">바나나</div>
+                    <button class="item__button">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </section>
+            <footer>
+                <div class="inputAndBtn">
+                    <input type="text" class="footer__input" />
+                    <button class="footer__button">+</button>
+                </div>
+            </footer>
+        </div>
     </body>
 </html>
