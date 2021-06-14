@@ -16,18 +16,18 @@
             <header class="header__bar">
                 <div class="header__time">9:32</div>
                 <div class="header__icon">
-                    <img src="img/ip_bar.png" alt="bar" />
-                    <img src="img/ip_wifi.png" alt="wifi" />
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
                     <img src="img/ip_battery.png" alt="battery" />
                 </div>
             </header>
             <section class="title">
                 <div class="title__name">
-                    <img src="img/ip_basket.png" alt="basket" />
-                    <span>나의 장바구니</span>
+                    <img src="img/ip_basket.png" alt="basket" class="basket" />
+                    <h2>나의 장바구니</h2>
                 </div>
                 <div class="title__img">
-                    <img src="img/avatar.jpeg" alt="avatar" />
+                    <img src="img/avatar.jpeg" alt="avatar" class="avatar" />
                 </div>
             </section>
             <div class="count">총 4개</div>
@@ -44,13 +44,30 @@
                         <i class="far fa-trash-alt"></i>
                     </button>
                 </div>
+                <div class="item">
+                    <div class="item__name">바나나</div>
+                    <button class="item__button">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div class="item">
+                    <div class="item__name">바나나</div>
+                    <button class="item__button">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
             </section>
             <footer>
                 <div class="inputAndBtn">
-                    <input type="text" class="footer__input" />
+                    <input
+                        type="text"
+                        class="footer__input"
+                        placeholder="아이템을 입력하세요."
+                    />
                     <button class="footer__button">+</button>
                 </div>
             </footer>
+            <div class="bar"></div>
         </div>
     </body>
 </html>
