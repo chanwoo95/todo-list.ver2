@@ -37,11 +37,21 @@ function onAdd() {
 
     function createItem(text) {
         const item = document.createElement('div');
+        const name = document.createElement('div');
         item.setAttribute('class', 'item');
+        name.setAttribute('class', 'item__name');
+        item.appendChild(name);
+
         const button = document.createElement('button');
-        delBtn.setAttribute('class', 'item__button');
-        item.appendChild(delBtn);
-        item.textContent = text;
+        button.addEventListener('click', () => {
+            container.removeChild(item);
+        });
+        const icon = document.createElement('i');
+        button.setAttribute('class', 'item__button');
+        icon.setAttribute('class', 'far fa-trash-alt');
+        item.appendChild(button);
+        button.appendChild(icon);
+        name.textContent = text;
 
         container.appendChild(item);
     }
