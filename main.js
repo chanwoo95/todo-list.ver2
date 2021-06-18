@@ -1,4 +1,5 @@
 // 1.현재 시간을 보여준다.
+
 const time = document.querySelector('.header__time');
 
 function timer() {
@@ -17,6 +18,9 @@ setInterval(timer, 1000);
 const input = document.querySelector('.footer__input');
 const button = document.querySelector('.footer__button');
 const container = document.querySelector('.item__container');
+const totalCount = document.querySelector('.count');
+
+let count = 0;
 
 button.addEventListener('click', onAdd);
 input.addEventListener('keypress', (event) => {
@@ -24,6 +28,10 @@ input.addEventListener('keypress', (event) => {
         onAdd();
     }
 });
+
+function updateCount(count) {
+    totalCount.textContent = `총 ${count}개`;
+}
 
 function onAdd() {
     const text = input.value;
@@ -33,7 +41,9 @@ function onAdd() {
         return;
     }
 
+    count++;
     createItem(text);
+    updateCount(count);
 
     function createItem(text) {
         const item = document.createElement('div');
@@ -45,6 +55,7 @@ function onAdd() {
         const button = document.createElement('button');
         button.addEventListener('click', () => {
             container.removeChild(item);
+            updateCount(--count);
         });
         const icon = document.createElement('i');
         button.setAttribute('class', 'item__button');
@@ -54,12 +65,12 @@ function onAdd() {
         name.textContent = text;
 
         container.appendChild(item);
+
+        item.scrollIntoView({ block: 'center' });
     }
 
     input.value = '';
     input.focus();
 }
 
-// 3. 아이템 삭제 버튼을 누르면 리스트에 해당 아이템이 삭제된다.
-
-// 4. 총 아이템 개수를 표시해준다.
+const lists = [];

@@ -68,7 +68,7 @@ button {
 
 .item__container {
     height: 350px;
-    overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 .item {
