@@ -67,10 +67,30 @@ function onAdd() {
         container.appendChild(item);
 
         item.scrollIntoView({ block: 'center' });
+
+        const newId = lists.length + 1;
+
+        item.id = newId;
+        const listObj = {
+            text,
+            id: newId,
+        };
+        lists.push(listObj);
+        saveList();
     }
 
     input.value = '';
     input.focus();
 }
 
+// 로컬스토리지 저장
+
+const LIST_LS = 'lists';
+
 const lists = [];
+
+function saveList() {
+    localStorage.setItem(LIST_LS, JSON.stringify(lists));
+}
+
+function loadList() {}
