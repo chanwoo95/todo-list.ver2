@@ -93,4 +93,13 @@ function saveList() {
     localStorage.setItem(LIST_LS, JSON.stringify(lists));
 }
 
-function loadList() {}
+function loadList() {
+    const loadLists = localStorage.getItem(LIST_LS);
+
+    if (loadLists !== null) {
+        const showLists = JSON.parse(loadLists);
+        showLists.forEach(() => {
+            createItem(lists.text);
+        });
+    }
+}
