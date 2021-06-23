@@ -35,7 +35,6 @@ function updateCount(count) {
 
 function onAdd() {
     const text = input.value;
-    console.log(text);
     if (text === '') {
         input.focus();
         return;
@@ -45,42 +44,42 @@ function onAdd() {
     createItem(text);
     updateCount(count);
 
-    function createItem(text) {
-        const item = document.createElement('div');
-        const name = document.createElement('div');
-        item.setAttribute('class', 'item');
-        name.setAttribute('class', 'item__name');
-        item.appendChild(name);
-
-        const button = document.createElement('button');
-        button.addEventListener('click', () => {
-            container.removeChild(item);
-            updateCount(--count);
-        });
-        const icon = document.createElement('i');
-        button.setAttribute('class', 'item__button');
-        icon.setAttribute('class', 'far fa-trash-alt');
-        item.appendChild(button);
-        button.appendChild(icon);
-        name.textContent = text;
-
-        container.appendChild(item);
-
-        item.scrollIntoView({ block: 'center' });
-
-        const newId = lists.length + 1;
-
-        item.id = newId;
-        const listObj = {
-            text,
-            id: newId,
-        };
-        lists.push(listObj);
-        saveList();
-    }
-
     input.value = '';
     input.focus();
+}
+
+function createItem(text) {
+    const item = document.createElement('div');
+    const name = document.createElement('div');
+    item.setAttribute('class', 'item');
+    name.setAttribute('class', 'item__name');
+    item.appendChild(name);
+
+    const button = document.createElement('button');
+    button.addEventListener('click', () => {
+        container.removeChild(item);
+        updateCount(--count);
+    });
+    const icon = document.createElement('i');
+    button.setAttribute('class', 'item__button');
+    icon.setAttribute('class', 'far fa-trash-alt');
+    item.appendChild(button);
+    button.appendChild(icon);
+    name.textContent = text;
+
+    container.appendChild(item);
+
+    item.scrollIntoView({ block: 'center' });
+
+    const newId = lists.length + 1;
+
+    item.id = newId;
+    const listObj = {
+        text,
+        id: newId,
+    };
+    lists.push(listObj);
+    saveList();
 }
 
 // 로컬스토리지 저장
@@ -95,7 +94,6 @@ function saveList() {
 
 function loadList() {
     const loadLists = localStorage.getItem(LIST_LS);
-
     if (loadLists !== null) {
         const showLists = JSON.parse(loadLists);
         showLists.forEach(() => {
