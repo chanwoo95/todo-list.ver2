@@ -22,7 +22,6 @@ const totalCount = document.querySelector('.count');
 
 let count = 0;
 
-button.addEventListener('click', onAdd);
 input.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         onAdd();
@@ -30,7 +29,7 @@ input.addEventListener('keypress', (event) => {
 });
 
 function updateCount(count) {
-    totalCount.textContent = `총 ${count}개`;
+    totalCount.textContent = `총 ${count - lists.length}개`;
 }
 
 function onAdd() {
@@ -96,8 +95,19 @@ function loadList() {
     const loadLists = localStorage.getItem(LIST_LS);
     if (loadLists !== null) {
         const showLists = JSON.parse(loadLists);
-        showLists.forEach(() => {
+        showLists.forEach((lists) => {
             createItem(lists.text);
         });
     }
 }
+
+function init() {
+    updateCount(count);
+    loadList();
+    button.addEventListener('click', onAdd);
+}
+init();
+
+// 남은 기능
+// count 총 개수 업데이트
+// 삭제 시 로컬스토리지 업데이트
