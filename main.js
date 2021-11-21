@@ -81,6 +81,10 @@ function createItem(text) {
     saveList();
 }
 
+// 삭제
+
+function deleteItem(item) {}
+
 // 로컬스토리지 저장
 
 const LIST_LS = 'lists';
